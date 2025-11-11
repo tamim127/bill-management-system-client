@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { Droplet, Flame, Globe, Zap } from "lucide-react";
@@ -34,22 +33,24 @@ export default function Categories() {
   const navigate = useNavigate();
 
   return (
-    <section className="py-20 px-4 bg-gradient-to-b from-base-100 to-base-200 dark:from-gray-900 dark:to-gray-800">
+    <section className="py-20 px-4 bg-gradient-to-b from-base-100 to-base-200 dark:from-neutral dark:to-gray-900 transition-colors duration-500">
       <div className="max-w-7xl mx-auto">
+        {/* Heading */}
         <motion.div
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center  mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-primary font-extrabold text-primary dark:text-secondary mb-4">
             Pay Any Utility Bill
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="text-lg font-secondary text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             One platform for all your monthly bills.
           </p>
         </motion.div>
 
+        {/* Categories Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {categories.map((cat, i) => (
             <motion.div
@@ -59,20 +60,23 @@ export default function Categories() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
               onClick={() => navigate(`/bills?category=${cat.query}`)}
-              className="group relative overflow-hidden rounded-3xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer transform hover:-translate-y-3"
+              className="group relative overflow-hidden border border-gray-200  dark:border-gray-700 rounded-3xl bg-base-100 dark:bg-neutral shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer transform hover:-translate-y-3"
               whileHover={{ scale: 1.05 }}
             >
+              {/* Gradient Overlay */}
               <div
                 className={`absolute inset-0 bg-gradient-to-br ${cat.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
               />
+
+              {/* Content */}
               <div className="relative p-8 text-center z-10">
-                <div className="flex justify-center mb-4 text-orange-500 group-hover:text-white transition-colors duration-500">
+                <div className="flex justify-center mb-4 text-primary dark:text-secondary group-hover:text-white transition-colors duration-500">
                   {cat.icon}
                 </div>
-                <h3 className="text-2xl font-bold text-gray-800 dark:text-white group-hover:text-white transition-colors duration-500">
+                <h3 className="text-2xl font-primary font-bold text-gray-800 dark:text-white group-hover:text-white transition-colors duration-500">
                   {cat.title}
                 </h3>
-                <p className="mt-2 text-sm text-gray-600 dark:text-gray-300 group-hover:text-white/80 transition-colors duration-500">
+                <p className="mt-2 text-sm font-secondary text-gray-600 dark:text-gray-300 group-hover:text-white/80 transition-colors duration-500">
                   View & Pay
                 </p>
               </div>

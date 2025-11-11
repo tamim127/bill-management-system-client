@@ -33,7 +33,7 @@ export default function Testimonials() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-primary dark:text-secondary mb-4">
             Loved by Users
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300">
@@ -49,7 +49,7 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className=" bg-white rounded-2xl p-6 shadow-lg"
+              className=" rounded-2xl p-6 shadow-lg"
             >
               <div className="flex  mb-3">
                 {[...Array(t.rating)].map((_, j) => (

@@ -1,12 +1,11 @@
-
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-import "swiper/css/navigation";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { Typewriter } from "react-simple-typewriter";
+import { useTheme } from "../../Context/ThemContext";
 
 const slides = [
   {
@@ -27,13 +26,15 @@ const slides = [
 ];
 
 export default function HeroSlider() {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+
   return (
     <section className="relative h-[85vh] overflow-hidden">
       <Swiper
-        modules={[Autoplay, Pagination, Navigation]}
+        modules={[Autoplay, Pagination]}
         autoplay={{ delay: 5000 }}
         pagination={{ clickable: true, dynamicBullets: true }}
-        navigation={true}
         loop={true}
         className="h-full"
       >
@@ -46,25 +47,44 @@ export default function HeroSlider() {
                 loading="lazy"
                 className="absolute inset-0 w-full h-full object-cover"
               />
+              {/* Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+
               <motion.div
                 initial={{ y: 50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.3 }}
                 className="relative z-10 max-w-4xl px-6"
               >
-                <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white drop-shadow-2xl mb-4 leading-tight">
-                  {slide.title}
+                {/* Typewriter heading */}
+                <h1
+                  className={`text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold drop-shadow-2xl mb-4 leading-tight text-gray-200`}
+                >
+                  <Typewriter
+                    words={[slide.title]}
+                    loop={0} // 0 = infinite loop
+                    cursor
+                    cursorStyle="_"
+                    typeSpeed={80}
+                    deleteSpeed={50}
+                    delaySpeed={1500}
+                  />
                 </h1>
-                <p className="text-lg md:text-xl text-white/90 drop-shadow-lg mb-8 max-w-2xl mx-auto">
+
+                <p
+                  className={`text-lg sm:text-xl drop-shadow-lg mb-8 max-w-2xl mx-auto ${
+                    isDark ? "text-gray-400" : "text-gray-300"
+                  }`}
+                >
                   {slide.desc}
                 </p>
+
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Link
                     to="/bills"
                     className="btn btn-primary btn-lg rounded-full shadow-xl flex items-center gap-2 hover:scale-105 transition-transform"
                   >
-                    View Bills <ArrowRight className="w-5 h-5" />
+                    View Bills
                   </Link>
                   <Link
                     to="/register"
