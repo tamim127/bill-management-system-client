@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { Outlet } from "react-router-dom";
 import FabMenu from "../UI/FabMenu";
+import ScrollToTop from "../UI/ScrollToTop";
 
 const MainLayout = () => {
   return (
@@ -13,6 +14,7 @@ const MainLayout = () => {
       </main>
       <Footer />
       <FabMenu />
+      <ScrollToTop />
     </>
   );
 };
