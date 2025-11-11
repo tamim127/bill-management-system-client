@@ -22,6 +22,7 @@ import NotFound from "./NotFound";
 import MainLayout from "../Components/Layouts/MainLayout";
 import PrivateRoutes from "../Components/Layouts/PrivateRoutes"
 import PrivacyPolicy from "./PrivacyPolicy";
+import RefundPolicy from "./RefundPolicy";
 
 export default function AppRoutes() {
   const [bills, setBills] = useState([]);
@@ -62,6 +63,7 @@ export default function AppRoutes() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/termsPrivacy" element={<TermsPrivacy />} />
+        <Route path="/refund" element={<RefundPolicy />} />
         <Route path="/faq" element={<FAQ />} />
         <Route
           path="/profile"
@@ -74,7 +76,6 @@ export default function AppRoutes() {
         <Route path="*" element={<NotFound />} />
       </Route>
 
-    
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
