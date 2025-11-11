@@ -24,9 +24,14 @@ export default function RecentBillSection() {
   return (
     <section className="px-6 sm:px-12 lg:px-20 py-12">
       {/* Heading */}
-      <h2 className="text-5xl font-primary font-bold text-center text-primary dark:text-secondary mb-8">
-        Recent Bills
-      </h2>
+      <div className="mb-15 space-y-3 text-center">
+        <h2 className="text-5xl font-primary font-extrabold text-center text-primary dark:text-secondary ">
+          Recent Bills
+        </h2>
+        <p className="text-lg font-secondary text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          All Recents Bills Are Here
+        </p>
+      </div>
 
       {/* Bills Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-3 gap-8">
@@ -37,7 +42,7 @@ export default function RecentBillSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1 }}
-            className="bg-base-100 dark:bg-neutral border border-gray-200   dark:border-gray-700 rounded-2xl shadow-md hover:shadow-xl transition-shadow p-6 flex flex-col justify-between"
+            className="bg-white dark:bg-gray-800   rounded-2xl shadow-md hover:shadow-xl transition-shadow p-6 flex flex-col justify-between"
           >
             {/* Title */}
             <h3 className="text-xl font-primary font-bold text-primary dark:text-secondary mb-3">

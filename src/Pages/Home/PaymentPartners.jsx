@@ -38,10 +38,10 @@ export default function PaymentPartners() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h3 className="text-2xl font-bold text-gray-800 dark:text-white">
+          <h3 className="text-4xl md:text-5xl font-primary font-extrabold text-primary dark:text-secondary mb-4">
             Trusted Payment Partners
           </h3>
-          <p className="text-gray-600 dark:text-gray-300 mt-2">
+          <p className="text-lg text-gray-600 dark:text-gray-300 mt-2">
             Pay with your favorite method — safe & instant.
           </p>
         </motion.div>

@@ -60,7 +60,7 @@ export default function Categories() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
               onClick={() => navigate(`/bills?category=${cat.query}`)}
-              className="group relative overflow-hidden border border-gray-200  dark:border-gray-700 rounded-3xl bg-base-100 dark:bg-neutral shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer transform hover:-translate-y-3"
+              className="group relative overflow-hidden  rounded-3xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer transform hover:-translate-y-3"
               whileHover={{ scale: 1.05 }}
             >
               {/* Gradient Overlay */}

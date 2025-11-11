@@ -32,7 +32,6 @@ const ThemeToggle = () => {
         className="swap-input"
         aria-hidden="true"
       />
-
       {/* Sun */}
       <Sun
         className={`swap-off absolute w-5 h-5 text-warning transition-all duration-500 group-hover:scale-110 ${
@@ -40,7 +39,6 @@ const ThemeToggle = () => {
         }`}
         strokeWidth={2}
       />
-
       {/* Moon */}
       <Moon
         className={`swap-on absolute w-5 h-5 text-info transition-all duration-500 group-hover:scale-110 ${
@@ -48,6 +46,15 @@ const ThemeToggle = () => {
         }`}
         strokeWidth={2}
       />
+      {/* Tooltip */}{" "}
+      <div className="absolute -top-3 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-200">
+        {" "}
+        <div className="bg-base-200 text-xs font-medium px-2 py-1 rounded-md whitespace-nowrap shadow-lg">
+          {" "}
+          {isDark ? "Light Mode" : "Dark Mode"}{" "}
+        </div>{" "}
+        <div className="w-2 h-2 bg-base-200 rotate-45 absolute top-full left-1/2 -translate-x-1/2 -translate-y-1/2"></div>{" "}
+      </div>
     </label>
   );
 };
