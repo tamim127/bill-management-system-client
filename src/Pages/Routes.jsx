@@ -21,6 +21,7 @@ import FAQ from "./FAQ";
 import NotFound from "./NotFound";
 import MainLayout from "../Components/Layouts/MainLayout";
 import PrivateRoutes from "../Components/Layouts/PrivateRoutes"
+import PrivacyPolicy from "./PrivacyPolicy";
 
 export default function AppRoutes() {
   const [bills, setBills] = useState([]);
@@ -59,6 +60,7 @@ export default function AppRoutes() {
         <Route path="/about" element={<About />} />
         <Route path="/help" element={<Help />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/termsPrivacy" element={<TermsPrivacy />} />
         <Route path="/faq" element={<FAQ />} />
         <Route

@@ -1,4 +1,4 @@
-// components/layout/Footer.jsx
+
 import { Link } from "react-router-dom";
 import {
   FaFacebookF,
@@ -45,7 +45,7 @@ export default function Footer() {
             </p>
             <div className="mt-4 flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
               <FaMapMarkerAlt className="text-primary" />
-              <span>Rajshahi, Bangladesh</span>
+              <span>Mirpur, Bangladesh</span>
             </div>
           </motion.div>
 
@@ -92,8 +92,8 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               {[
                 { to: "/privacy", label: "Privacy Policy" },
-                { to: "/terms", label: "Terms of Service" },
-                { to: "/faq", label: "FAQ" },
+                { to: "/termsPrivacy", label: "Terms of Service" },
+        
 
                 { to: "/help", label: "Help Center" },
                 { to: "/refund", label: "Refund Policy" },
@@ -196,7 +196,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="font-medium text-primary hover:underline"
             >
-              Tamim
+              Tamim.dev
             </a>
           </p>
         </div>
