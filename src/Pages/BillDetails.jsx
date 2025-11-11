@@ -29,7 +29,9 @@ export default function BillDetails() {
     const fetchBill = async () => {
       try {
         setLoading(true);
-        const res = await fetch(`http://localhost:3000/bills/${id}`);
+        const res = await fetch(
+          `https://bill-management-system-servers.vercel.app/bills/${id}`
+        );
         const data = await res.json();
         setBill(data);
       } catch (err) {
@@ -69,39 +71,41 @@ export default function BillDetails() {
     setShowModal(true);
   };
 
- const handleSubmit = async (e) => {
-   e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-   const paymentData = {
-     billId: bill._id,
-     username: formData.username,
-     phone: formData.phone,
-     address: formData.address,
-     email: user?.email,
-     amount: bill.amount,
-     date: new Date().toISOString().slice(0, 10), 
-   };
+    const paymentData = {
+      billId: bill._id,
+      username: formData.username,
+      phone: formData.phone,
+      address: formData.address,
+      email: user?.email,
+      amount: bill.amount,
+      date: new Date().toISOString().slice(0, 10),
+    };
 
-   try {
-     const res = await fetch("http://localhost:3000/mybills", {
-       method: "POST",
-       headers: { "Content-Type": "application/json" },
-       body: JSON.stringify(paymentData),
-     });
+    try {
+      const res = await fetch(
+        "https://bill-management-system-servers.vercel.app/mybills",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(paymentData),
+        }
+      );
 
-     if (res.ok) {
-       toast.success(" Payment Successful!");
-       setShowModal(false);
-       setTimeout(() => navigate("/my-bills"), 1500);
-     } else {
-       toast.error(" Failed to process payment");
-     }
-   } catch (err) {
-     console.error(err);
-     toast.error("Payment request failed");
-   }
- };
-
+      if (res.ok) {
+        toast.success(" Payment Successful!");
+        setShowModal(false);
+        setTimeout(() => navigate("/my-bills"), 1500);
+      } else {
+        toast.error(" Failed to process payment");
+      }
+    } catch (err) {
+      console.error(err);
+      toast.error("Payment request failed");
+    }
+  };
 
   return (
     <>

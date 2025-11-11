@@ -7,7 +7,7 @@ export default function RecentBillSection() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:3000/bills")
+    fetch("https://bill-management-system-servers.vercel.app/recent-bills")
       .then((res) => res.json())
       .then((data) => setBills(data.slice(0, 6)))
       .catch(() => setBills([]))

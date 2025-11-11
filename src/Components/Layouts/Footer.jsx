@@ -14,7 +14,6 @@ import { motion } from "framer-motion";
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
-  
   const socialLinks = {
     facebook: "https://facebook.com/utilipaybd",
     twitter: "https://twitter.com/utilipaybd",
@@ -94,6 +93,8 @@ export default function Footer() {
               {[
                 { to: "/privacy", label: "Privacy Policy" },
                 { to: "/terms", label: "Terms of Service" },
+                { to: "/faq", label: "FAQ" },
+
                 { to: "/help", label: "Help Center" },
                 { to: "/refund", label: "Refund Policy" },
               ].map((link) => (

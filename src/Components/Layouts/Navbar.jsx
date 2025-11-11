@@ -6,21 +6,22 @@ import { useState, useRef, useEffect } from "react";
 
 export default function Navbar() {
   const { user, logout } = useAuth();
-  
   const location = useLocation();
   const navigate = useNavigate();
+
+  // Navbar states
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false); // For desktop dropdown
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const dropdownRef = useRef(null);
 
+  
   const navItems = [
     { name: "Home", path: "/" },
     { name: "Bills", path: "/bills" },
     { name: "About", path: "/about" },
-    { name: "Help", path: "/help" },
     { name: "Contact", path: "/contact" },
-    { name: "Terms & Privacy", path: "/termsPrivacy" },
+    { name: "Help", path: "/help" },
     ...(user
       ? [
           { name: "My Pay Bills", path: "/my-bills" },
@@ -32,6 +33,9 @@ export default function Navbar() {
         ]),
   ];
 
+  
+  // Handle Logout
+  
   const handleLogout = async () => {
     try {
       await logout();
@@ -43,7 +47,9 @@ export default function Navbar() {
     }
   };
 
-  // Close dropdown when clicking outside
+  
+  // Close dropdown if clicked outside
+  
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -54,11 +60,13 @@ export default function Navbar() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  
   return (
     <nav className="backdrop-blur-md bg-white/80 dark:bg-gray-900/80 shadow-lg sticky top-0 z-50 transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Navbar Inner Container */}
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
+        
           <Link
             to="/"
             className="text-2xl font-extrabold tracking-wide text-primary hover:text-primary/80 transition-colors"
@@ -66,8 +74,9 @@ export default function Navbar() {
             Utili<span className="text-secondary">Pay</span>
           </Link>
 
-          {/* Desktop Navigation */}
+          {/* ---------- Desktop Menu ---------- */}
           <div className="hidden md:flex items-center space-x-8">
+            {/* Navigation Links */}
             <ul className="flex items-center space-x-8 font-medium text-gray-700 dark:text-gray-200">
               {navItems.map((item) => (
                 <li key={item.path}>
@@ -87,7 +96,7 @@ export default function Navbar() {
               ))}
             </ul>
 
-            {/* Desktop Avatar + Click Dropdown */}
+            {/* ---------- User Dropdown (Desktop) ---------- */}
             {user && (
               <div className="relative" ref={dropdownRef}>
                 <button
@@ -95,27 +104,29 @@ export default function Navbar() {
                   className="flex items-center focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-full"
                   aria-label="User menu"
                 >
-                  <div className="w-9 h-9 rounded-full overflow-hidden ring-2 ring-primary ring-offset-2">
+                  <div className="w-7 h-7 rounded-full overflow-hidden ring-1 ring-primary ring-offset-2">
                     <img
-                      src={user?.photoURL}
+                      src={
+                        user?.photoURL ||
+                        "https://ui-avatars.com/api/?name=User&background=6366f1&color=fff"
+                      }
                       alt="User"
                       className="w-full h-full object-cover"
                     />
                   </div>
-                 
                 </button>
 
-                {/* Dropdown Menu - Modern Production Version */}
+                {/* Dropdown Menu */}
                 <ul
                   className={`
-    absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-xl shadow-2xl
-    py-2 transition-all duration-300 origin-top-right transform
-    ${
-      dropdownOpen
-        ? "opacity-100 scale-100 visible"
-        : "opacity-0 scale-95 invisible"
-    }
-  `}
+                    absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-xl shadow-2xl
+                    py-2 transition-all duration-300 origin-top-right transform
+                    ${
+                      dropdownOpen
+                        ? "opacity-100 scale-100 visible"
+                        : "opacity-0 scale-95 invisible"
+                    }
+                  `}
                   style={{ pointerEvents: dropdownOpen ? "auto" : "none" }}
                 >
                   {/* Profile Link */}
@@ -123,11 +134,7 @@ export default function Navbar() {
                     <Link
                       to="/profile"
                       onClick={() => setDropdownOpen(false)}
-                      className="
-        flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-200
-        hover:bg-gray-100 dark:hover:bg-gray-700/80
-        rounded-lg transition-colors duration-200
-      "
+                      className="flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700/80 rounded-lg transition-colors duration-200"
                     >
                       <FiUser className="w-4 h-4" /> View Profile
                     </Link>
@@ -138,15 +145,11 @@ export default function Navbar() {
                     <hr className="my-1 border-t border-gray-200 dark:border-gray-700" />
                   </li>
 
-                  {/* Logout Button */}
+                  {/* Logout */}
                   <li>
                     <button
                       onClick={handleLogout}
-                      className="
-        w-full flex items-center gap-2 text-left px-4 py-2.5 text-sm font-medium text-red-600
-        hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg
-        transition-colors duration-200
-      "
+                      className="w-full flex items-center gap-2 text-left px-4 py-2.5 text-sm font-medium text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors duration-200"
                     >
                       <FiLogOut className="w-4 h-4" /> Logout
                     </button>
@@ -156,18 +159,18 @@ export default function Navbar() {
             )}
           </div>
 
-          {/* Theme Toggle + Mobile Toggle */}
+          {/* ---------- Theme & Mobile Toggle ---------- */}
           <div className="flex items-center space-x-3">
             <ThemeToggle />
 
-            {/* Mobile Menu Button */}
+            {/* Mobile menu toggle button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="md:hidden p-2 rounded-lg bg-primary/10 hover:bg-primary/20 transition-colors"
               aria-label="Toggle menu"
             >
               <svg
-                className={`w-6 h-6 text-primary transition-transform duration-300 ${
+                className={`w-5 h-5 text-primary transition-transform duration-300 ${
                   mobileMenuOpen ? "rotate-90" : ""
                 }`}
                 fill="none"
@@ -195,7 +198,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* ---------- Mobile Menu ---------- */}
       {mobileMenuOpen && (
         <div className="md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
           <ul className="px-4 py-3 space-y-2">
@@ -216,7 +219,7 @@ export default function Navbar() {
               </li>
             ))}
 
-            {/* Mobile User + Logout */}
+            {/* Mobile user info + Logout */}
             {user && (
               <>
                 <li className="flex items-center gap-3 px-3 py-3 border-t border-gray-200 dark:border-gray-700">
@@ -237,6 +240,7 @@ export default function Navbar() {
                     <p className="text-xs text-gray-500">{user.email}</p>
                   </div>
                 </li>
+
                 <li>
                   <button
                     onClick={handleLogout}

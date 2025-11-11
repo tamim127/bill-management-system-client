@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FiMapPin, FiDollarSign, FiFilter } from "react-icons/fi";
-import { CircleLoader } from "react-spinners"
+import { CircleLoader } from "react-spinners";
 import Spinner from "../Components/ui/Spinner";
 
 const categories = [
@@ -19,23 +19,28 @@ const Bills = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // Fetch bills from backend
-  const fetchBills = async (category = "") => {
-    try {
-      setLoading(true);
-      let url = "http://localhost:3000/bills";
-      if (category) {
-        url += `?category=${category}`;
-      }
-      const response = await fetch(url);
-      const data = await response.json();
-      setBills(data);
-    } catch (err) {
-      console.error("Error fetching bills:", err);
-      setBills([]);
-    } finally {
-      setLoading(false);
+  const fetchBills = (category = "") => {
+    setLoading(true);
+    //  API URL
+    let url = "https://bill-management-system-servers.vercel.app/bills";
+
+    //  Category
+    if (category) {
+      url += `?category=${category}`;
     }
+    //  Fetch request
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        setBills(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching bills:", error);
+        setBills([]);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   // Fetch bills on mount & whenever category changes
@@ -46,7 +51,6 @@ const Bills = () => {
   return (
     <div className="min-h-screen bg-base-100 py-12 px-4">
       <div className="max-w-7xl mx-auto">
-        
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-4">
@@ -80,9 +84,9 @@ const Bills = () => {
         {/* Bills Grid */}
         {loading ? (
           <div className="text-center py-20">
-            <p className="text-xl text-gray-500 dark:text-gray-400">
-              <Spinner/>
-            </p>
+            <div className="text-xl text-gray-500 dark:text-gray-400">
+              <Spinner />
+            </div>
           </div>
         ) : bills.length === 0 ? (
           <div className="text-center py-20">

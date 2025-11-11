@@ -1,0 +1,20 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+    darkMode: "class", 
+    content: [
+        "./index.html",
+        "./src/**/*.{js,jsx,ts,tsx}",
+    ],
+    theme: {
+        extend: {
+            colors: {
+                primary: "#2563eb",
+                secondary: "#9333ea",
+            },
+        },
+    },
+    plugins: [require("daisyui")],
+    daisyui: {
+        themes: ["light", "dark"], 
+    },
+};

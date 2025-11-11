@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useAuth } from "../context/AuthContext";
 import jsPDF from "jspdf";
-import "jspdf-autotable";               // <-- keep this line
+import "jspdf-autotable"; // <-- keep this line
 
 export default function MyPayBills() {
   const { user } = useAuth();
@@ -19,7 +19,7 @@ export default function MyPayBills() {
   // ────────────────────── FETCH BILLS ──────────────────────
   const fetchBills = async () => {
     const res = await fetch(
-      `http://localhost:3000/my-bills?email=${user?.email}`
+      `https://bill-management-system-servers.vercel.app/my-bills?email=${user?.email}`
     );
     const data = await res.json();
     setBills(data);
@@ -46,8 +46,8 @@ export default function MyPayBills() {
 
     // ---------- COLORS ----------
     const primary = [30, 144, 255];
-    const dark    = [33, 37, 41];
-    const light   = [248, 249, 250];
+    const dark = [33, 37, 41];
+    const light = [248, 249, 250];
 
     // ---------- HEADER ----------
     doc.setFontSize(24);
@@ -75,7 +75,7 @@ export default function MyPayBills() {
     try {
       doc.autoTable({
         head: [["Username", "Amount", "Date", "Phone"]],
-        body: bills.map(b => [
+        body: bills.map((b) => [
           b.username || "N/A",
           `৳${Number(b.amount ?? 0).toLocaleString()}`,
           new Date(b.createdAt).toLocaleDateString("en-GB"),
@@ -84,7 +84,12 @@ export default function MyPayBills() {
         startY: summaryY + 28,
         theme: "grid",
         styles: { fontSize: 10, cellPadding: 4 },
-        headStyles: { fillColor: primary, textColor: 255, fontStyle: "bold", halign: "center" },
+        headStyles: {
+          fillColor: primary,
+          textColor: 255,
+          fontStyle: "bold",
+          halign: "center",
+        },
         columnStyles: {
           0: { cellWidth: 45 },
           1: { cellWidth: 35, halign: "right" },
@@ -93,7 +98,7 @@ export default function MyPayBills() {
         },
         alternateRowStyles: { fillColor: [245, 247, 250] },
         pageBreak: "auto",
-        didDrawPage: data => {
+        didDrawPage: (data) => {
           const h = doc.internal.pageSize.height;
           doc.setFontSize(9);
           doc.setTextColor(150);
@@ -121,10 +126,14 @@ export default function MyPayBills() {
       doc.setFont("helvetica", "normal");
 
       // rows
-      bills.forEach(b => {
+      bills.forEach((b) => {
         doc.text(b.username || "N/A", 20, y);
         doc.text(`৳${Number(b.amount ?? 0).toLocaleString()}`, 20 + cols[0], y);
-        doc.text(new Date(b.createdAt).toLocaleDateString("en-GB"), 20 + cols[0] + cols[1], y);
+        doc.text(
+          new Date(b.createdAt).toLocaleDateString("en-GB"),
+          20 + cols[0] + cols[1],
+          y
+        );
         doc.text(b.phone || "N/A", 20 + cols[0] + cols[1] + cols[2], y);
         y += line;
       });
@@ -140,7 +149,7 @@ export default function MyPayBills() {
   const handleUpdate = async (e) => {
     e.preventDefault();
     const res = await fetch(
-      `http://localhost:3000/my-bills/${selectedBill._id}`,
+      `https://bill-management-system-servers.vercel.app/my-bills/${selectedBill._id}`,
       {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -158,9 +167,12 @@ export default function MyPayBills() {
 
   const handleDelete = async (id) => {
     if (confirm("Are you sure you want to delete this bill?")) {
-      const res = await fetch(`http://localhost:3000/my-bills/${id}`, {
-        method: "DELETE",
-      });
+      const res = await fetch(
+        `https://bill-management-system-servers.vercel.app/my-bills/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
       if (res.ok) {
         toast.success("Bill deleted!");
         fetchBills();
