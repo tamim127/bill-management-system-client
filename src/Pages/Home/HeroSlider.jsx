@@ -62,7 +62,7 @@ export default function HeroSlider() {
                 >
                   <Typewriter
                     words={[slide.title]}
-                    loop={0} // 0 = infinite loop
+                    loop={0} 
                     cursor
                     cursorStyle="_"
                     typeSpeed={80}
