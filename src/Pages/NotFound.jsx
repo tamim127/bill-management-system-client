@@ -32,10 +32,7 @@ export default function NotFound() {
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white">
             Oops! Page Not Found
           </h2>
-          
         </div>
-
-       
 
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -46,7 +43,10 @@ export default function NotFound() {
             <Home className="w-5 h-5" />
             Back to Home
           </Link>
-          <Link to="/bills" className="btn btn-outline btn-lg rounded-full">
+          <Link
+            to="/bills"
+            className="btn btn-outline btn-lg dark:text-gray-300 rounded-full"
+          >
             View All Bills
           </Link>
         </div>
