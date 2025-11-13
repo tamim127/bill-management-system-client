@@ -104,10 +104,18 @@ The **Utility Bill Management System** is a MERN stack web application that allo
 ```
 
 
+Role,Name,Contact
+Project Lead,[Tamim],eishatahmedtamim70@email.com
+Frontend,[Tamim],
+Backend,[Tamim],
+UI/UX,[Tamim],
+
+
+
 # 🌐 Deployment
 
-- # Client-side: Netlify 
-- # Authentication: Firebase
-- # Server-side: Vercel
+-  Client-side: Netlify 
+-  Authentication: Firebase
+-  Server-side: Vercel
 
 
