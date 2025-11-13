@@ -25,12 +25,12 @@ export default function EditProfileModal({
 
     setLoading(true);
     try {
-      // Firebase-এ displayName আপডেট
+      // 
       await updateProfile(auth.currentUser, {
         displayName: form.displayName,
       });
 
-      // Local state আপডেট (phone, address, photoURL)
+      // 
       setProfileData((prev) => ({
         ...prev,
         displayName: form.displayName,
@@ -59,7 +59,7 @@ export default function EditProfileModal({
             Edit Profile
           </h2>
           <button onClick={onClose} className="text-gray-500 text-gray-700 ">
-            <X className="w-5 h-5" />
+            <X className="w-5 dark:text-gray-300 h-5" />
           </button>
         </div>
 
@@ -76,7 +76,7 @@ export default function EditProfileModal({
               onChange={(e) =>
                 setForm({ ...form, displayName: e.target.value })
               }
-              className="input input-bordered w-full"
+              className="input dark:text-gray-300 input-bordered w-full"
               placeholder="John Doe"
               disabled={loading}
             />
@@ -91,7 +91,7 @@ export default function EditProfileModal({
               type="tel"
               value={form.phone}
               onChange={(e) => setForm({ ...form, phone: e.target.value })}
-              className="input input-bordered w-full"
+              className="input dark:text-gray-300 input-bordered w-full"
               placeholder="+880 1XXX-XXXXXX"
               disabled={loading}
             />
@@ -106,7 +106,7 @@ export default function EditProfileModal({
               type="text"
               value={form.address}
               onChange={(e) => setForm({ ...form, address: e.target.value })}
-              className="input input-bordered w-full"
+              className="input dark:text-gray-300 input-bordered w-full"
               placeholder="Dhaka, Bangladesh"
               disabled={loading}
             />
@@ -117,7 +117,7 @@ export default function EditProfileModal({
         <div className="flex gap-3 mt-6">
           <button
             onClick={onClose}
-            className="flex-1 btn btn-ghost"
+            className="flex-1 dark:text-gray-300 btn btn-ghost"
             disabled={loading}
           >
             Cancel
