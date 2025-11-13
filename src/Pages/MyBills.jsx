@@ -193,6 +193,7 @@ export default function MyPayBills() {
     <>
       <Toaster position="top-right" />
       <div className="min-h-screen bg-base-100 dark:bg-gray-900 py-8 px-4">
+        <title>My Pay Bills</title>
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="mb-8 text-center">

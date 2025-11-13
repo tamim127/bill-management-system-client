@@ -50,6 +50,7 @@ const Bills = () => {
 
   return (
     <div className="min-h-screen bg-base-100 py-12 px-4">
+      <title>Bills</title>
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
@@ -71,10 +72,14 @@ const Bills = () => {
           <select
             value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value)}
-            className="select select-bordered w-full sm:w-64"
+            className="select  dark:text-gray-300 select-bordered w-full sm:w-64"
           >
             {categories.map((cat) => (
-              <option key={cat.value} value={cat.value}>
+              <option
+                className="dark:text-gray-300 "
+                key={cat.value}
+                value={cat.value}
+              >
                 {cat.label}
               </option>
             ))}

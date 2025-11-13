@@ -43,6 +43,7 @@ export default function ForgotPassword() {
     <>
       <Toaster position="top-center" />
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-gray-900 dark:via-purple-900 dark:to-indigo-900 p-4">
+        <title>Forgot Password</title>
         <div className="w-full max-w-md">
           {/* Glass Card */}
           <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-3xl shadow-2xl p-8 border border-white/20 dark:border-gray-700">

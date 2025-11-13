@@ -99,6 +99,7 @@ export default function TermsPrivacy() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-base-100 to-base-200 dark:from-gray-900 dark:to-gray-800 py-12 px-4">
+      <title>Terms of Service</title>
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-10">

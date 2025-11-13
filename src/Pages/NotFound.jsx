@@ -16,6 +16,7 @@ export default function NotFound() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-base-100 to-base-200 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center p-4">
       <div className="text-center max-w-2xl mx-auto">
+        <title>Error-404</title>
         {/* 404 Text */}
         <div className="mb-8">
           <h1 className="text-9xl md:text-[12rem] font-black text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary animate-pulse">

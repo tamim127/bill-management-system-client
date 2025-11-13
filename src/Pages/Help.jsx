@@ -192,6 +192,7 @@ export default function Help() {
 
       {/* Contact CTA */}
       <section className="py-16 px-4 bg-gradient-to-t from-base-300 to-base-200 dark:from-gray-800 dark:to-gray-900">
+        <title>Help</title>
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">
             Still need help?

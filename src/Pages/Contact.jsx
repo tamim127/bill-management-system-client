@@ -51,6 +51,7 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-base-100 to-base-200 dark:from-gray-900 dark:to-gray-800 py-12 px-4">
+      <title>Contact</title>
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
@@ -78,7 +79,7 @@ export default function Contact() {
                   type="text"
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  className={`input input-bordered w-full ${
+                  className={`input dark:text-gray-300 input-bordered w-full ${
                     errors.name ? "input-error" : ""
                   }`}
                   placeholder="John Doe"
@@ -97,7 +98,7 @@ export default function Contact() {
                   type="email"
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  className={`input input-bordered w-full ${
+                  className={`input dark:text-gray-300 input-bordered w-full ${
                     errors.email ? "input-error" : ""
                   }`}
                   placeholder="john@example.com"
@@ -118,7 +119,7 @@ export default function Contact() {
                   onChange={(e) =>
                     setForm({ ...form, subject: e.target.value })
                   }
-                  className={`input input-bordered w-full ${
+                  className={`input  dark:text-gray-300 input-bordered w-full ${
                     errors.subject ? "input-error" : ""
                   }`}
                   placeholder="Billing Issue"
@@ -139,7 +140,7 @@ export default function Contact() {
                     setForm({ ...form, message: e.target.value })
                   }
                   rows={5}
-                  className={`textarea textarea-bordered w-full ${
+                  className={`textarea dark:text-gray-300 textarea-bordered w-full ${
                     errors.message ? "textarea-error" : ""
                   }`}
                   placeholder="Write your message here..."

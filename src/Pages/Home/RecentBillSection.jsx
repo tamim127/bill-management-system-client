@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import Spinner from "../../Components/UI/Spinner";
 
 export default function RecentBillSection() {
   const [bills, setBills] = useState([]);
@@ -17,7 +18,7 @@ export default function RecentBillSection() {
   if (loading)
     return (
       <div className="flex justify-center py-12">
-        <span className="loading loading-spinner loading-lg"></span>
+        <Spinner/>
       </div>
     );
 

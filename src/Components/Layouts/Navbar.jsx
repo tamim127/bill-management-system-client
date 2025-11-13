@@ -21,7 +21,7 @@ export default function Navbar() {
     { name: "Bills", path: "/bills" },
     { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
-    { name: "Help", path: "/help" },
+    
     ...(user
       ? [
           { name: "My Pay Bills", path: "/my-bills" },

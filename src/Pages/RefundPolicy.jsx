@@ -17,6 +17,7 @@ export default function RefundPolicy() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-base-100 to-base-200 dark:from-gray-900 dark:to-gray-800">
+      <title>Refund Policy</title>
       {/* Hero Section */}
       <section className="relative py-16 md:py-24 px-4 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-blue-500/5 dark:from-green-500/10 dark:to-blue-500/10" />
