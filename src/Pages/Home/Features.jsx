@@ -48,9 +48,7 @@ export default function Features() {
 
   return (
     <section
-      className={`py-20 px-4 bg-gradient-to-b ${
-        isDark ? "from-gray-900 to-gray-800" : "from-base-200 to-base-100"
-      }`}
+      className={`py-20 `}
     >
       <div className="max-w-7xl mx-auto">
         {/* Heading */}

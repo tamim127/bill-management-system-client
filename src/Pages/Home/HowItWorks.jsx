@@ -26,7 +26,7 @@ export default function HowItWorks() {
   ];
 
   return (
-    <section className={`py-20 px-4 ${isDark ? "bg-gray-900" : "bg-base-100"}`}>
+    <section className={`py-20 px-6 ${isDark ? "bg-gray-900" : "bg-base-200"}`}>
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
         <motion.div

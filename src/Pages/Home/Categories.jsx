@@ -33,14 +33,16 @@ export default function Categories() {
   const navigate = useNavigate();
 
   return (
-    <section className="py-20 px-4 bg-gradient-to-b from-base-100 to-base-200 dark:from-neutral dark:to-gray-900 transition-colors duration-500">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-20  transition-colors duration-500">
+      {/* max-w-7xl + responsive padding */}
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Heading */}
         <motion.div
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
-          className="text-center  mb-16"
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-primary font-extrabold text-primary dark:text-secondary mb-4">
             Pay Any Utility Bill
@@ -58,9 +60,9 @@ export default function Categories() {
               initial={{ y: 50, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
+              transition={{ delay: i * 0.1, duration: 0.5 }}
               onClick={() => navigate(`/bills?category=${cat.query}`)}
-              className="group relative overflow-hidden  rounded-3xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer transform hover:-translate-y-3"
+              className="group relative overflow-hidden rounded-3xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer transform hover:-translate-y-3"
               whileHover={{ scale: 1.05 }}
             >
               {/* Gradient Overlay */}

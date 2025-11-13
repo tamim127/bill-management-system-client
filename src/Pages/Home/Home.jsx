@@ -17,14 +17,12 @@ import MobileApp from "../../assets/MobileApp.json";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-base-100 dark:bg-gray-900 transition-colors duration-300">
+    <div className="min-h-screen bg-base-200 dark:bg-gray-900 transition-colors duration-300">
       {/* Hero Slider */}
       <HeroSlider />
-
-      {/* ---------------------------- */}
       {/* Budget Management */}
-      {/* ---------------------------- */}
-      <section className="max-w-7xl mx-auto px-6 md:px-12 py-16">
+      
+      <section className="max-w-7xl  mx-auto px-6 md:px-12 py-16">
         <div className="flex flex-col md:flex-row items-center justify-between gap-10">
           <div className="w-full md:w-1/2 flex justify-center">
             <Lottie
@@ -65,14 +63,13 @@ export default function Home() {
       </section>
 
       {/* Categories & Recent Bills */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+   
         <Categories />
         <RecentBillSection />
-      </div>
-
-      {/* ---------------------------- */}
+    
+   
       {/* Download Reports */}
-      {/* ---------------------------- */}
+    
       <section className="max-w-7xl mx-auto px-6 md:px-12 py-16 bg-gray-50 dark:bg-gray-800">
         <div className="flex flex-col md:flex-row-reverse items-center justify-between gap-10">
           <div className="w-full md:w-1/2 flex justify-center">
@@ -117,9 +114,9 @@ export default function Home() {
         <Features />
       </div>
 
-      {/* ---------------------------- */}
+  
       {/* Easy Online Payments */}
-      {/* ---------------------------- */}
+    
       <section className="max-w-7xl mx-auto px-6 md:px-12 py-16 bg-gray-50 dark:bg-gray-800 rounded-2xl shadow-sm my-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-10">
           <div className="w-full md:w-1/2 text-center md:text-left">
@@ -159,19 +156,19 @@ export default function Home() {
       </section>
 
       {/* Payment Partners & Stats */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+    
         <PaymentPartners />
         <StatsCounter />
-      </div>
+    
 
       {/* How It Works */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      
         <HowItWorks />
-      </div>
+    
 
-      {/* ---------------------------- */}
+    
       {/* Mobile App CTA */}
-      {/* ---------------------------- */}
+
       <section className="max-w-7xl mx-auto px-6 md:px-12 py-16 bg-gray-50 dark:bg-gray-800 rounded-2xl shadow-sm">
         <div className="flex flex-col md:flex-row-reverse items-center justify-between gap-10">
           <div className="w-full md:w-1/2 flex justify-center">
@@ -211,11 +208,9 @@ export default function Home() {
       </section>
 
       {/* Remaining Sections */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
         <MobileAppCTA />
         <Testimonials />
         <CTA />
-      </div>
     </div>
   );
 }
