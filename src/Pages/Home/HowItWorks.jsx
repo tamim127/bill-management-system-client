@@ -38,7 +38,7 @@ export default function HowItWorks() {
         >
           <h2
             className={`text-4xl md:text-5xl font-bold mb-4 ${
-              isDark ? "text-secondary font-sans" : "text-primary font-serif"
+              isDark ? "text-secondary " : "text-primary "
             }`}
           >
             Pay Bills in 30 Seconds
@@ -46,7 +46,7 @@ export default function HowItWorks() {
           <p
             className={`text-lg ${
               isDark ? "text-gray-300" : "text-gray-700"
-            } font-sans`}
+            } `}
           >
             It’s that simple.
           </p>
@@ -74,12 +74,12 @@ export default function HowItWorks() {
               </div>
               <h3
                 className={`text-xl font-bold mb-2 ${
-                  isDark ? "text-white font-sans" : "text-gray-800 font-serif"
+                  isDark ? "text-white " : "text-gray-800 "
                 }`}
               >
                 {i + 1}. {step.title}
               </h3>
-              <p className={`text-gray-600 dark:text-gray-300 font-sans`}>
+              <p className={`text-gray-600 dark:text-gray-300 `}>
                 {step.desc}
               </p>
             </motion.div>

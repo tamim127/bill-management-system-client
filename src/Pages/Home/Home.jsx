@@ -70,7 +70,7 @@ export default function Home() {
 
       {/* Download Reports */}
 
-      <section className="max-w-7xl mx-auto px-6 md:px-12 py-16 bg-gray-50 dark:bg-gray-800">
+      <section className="max-w-7xl mx-auto px-6 md:px-12 py-16 ">
         <div className="flex flex-col md:flex-row-reverse items-center justify-between gap-10">
           <div className="w-full md:w-1/2 flex justify-center">
             <Lottie
@@ -110,13 +110,13 @@ export default function Home() {
       </section>
 
       {/* Features */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      
         <Features />
-      </div>
+     
 
       {/* Easy Online Payments */}
 
-      <section className="max-w-7xl mx-auto px-6 md:px-12 py-16 bg-gray-50 dark:bg-gray-800 rounded-2xl shadow-sm my-10">
+      <section className="max-w-7xl mx-auto px-6 md:px-12 py-16   my-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-10">
           <div className="w-full md:w-1/2 text-center md:text-left">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800 dark:text-white">
@@ -165,7 +165,7 @@ export default function Home() {
 
       {/* Mobile App CTA */}
 
-      <section className="max-w-7xl mx-auto px-6 md:px-12 py-16 bg-gray-50 dark:bg-gray-800 rounded-2xl shadow-sm">
+      <section className="max-w-7xl mx-auto px-6 md:px-12 py-16  shadow-sm">
         <div className="flex flex-col md:flex-row-reverse items-center justify-between gap-10">
           <div className="w-full md:w-1/2 flex justify-center">
             <Lottie

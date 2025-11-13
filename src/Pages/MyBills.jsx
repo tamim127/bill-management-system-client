@@ -272,69 +272,144 @@ export default function MyPayBills() {
 
           {/* Table */}
           {!loading && !error && bills.length > 0 && (
-            <div className="overflow-x-auto bg-white dark:bg-gray-800 rounded-2xl shadow-lg">
-              <table className="table table-zebra w-full">
-                <thead className="bg-gray-50 dark:bg-gray-700">
-                  <tr>
-                    <th>Username</th>
-                    <th>Email</th>
-                    <th>Amount</th>
-                    <th>Date</th>
-                    <th>Phone</th>
-                    <th className="text-center">Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {bills.map((b) => (
-                    <tr
-                      key={b._id}
-                      className="hover:bg-gray-50 dark:hover:bg-gray-700"
-                    >
-                      <td className="font-medium  dark:text-gray-400">
-                        {b.username || "—"}
-                      </td>
-                      <td className=" dark:text-gray-400">{b.email}</td>
-                      <td className="font-semibold text-success">
-                        $ {Number(b.amount).toLocaleString()}
-                      </td>
-                      <td className=" dark:text-gray-400">
-                        {new Date(b.createdAt).toLocaleDateString("en-GB")}
-                      </td>
-                      <td className=" dark:text-gray-400">{b.phone || "—"}</td>
-                      <td>
-                        <div className="flex justify-center gap-2">
-                          <button
-                            onClick={() => {
-                              setSelectedBill(b);
-                              setFormData({
-                                amount: Number(b.amount) || 0, // Convert to number
-                                address: b.address || "",
-                                phone: b.phone || "",
-                                date: new Date(b.createdAt)
-                                  .toISOString()
-                                  .slice(0, 10), // YYYY-MM-DD
-                              });
-                            }}
-                            className="btn btn-sm btn-warning flex items-center gap-1"
-                          >
-                            <Edit2 className="w-4 h-4" />
-                            Edit
-                          </button>
-                          <button
-                            onClick={() => handleDelete(b._id)}
-                            className="btn btn-sm btn-error flex items-center gap-1"
-                            aria-label="Delete bill"
-                          >
-                            <Trash2 className="w-4 h-4" />
-                            Delete
-                          </button>
-                        </div>
-                      </td>
+            <>
+              {/* Desktop Table */}
+              <div className="hidden md:block overflow-x-auto bg-white dark:bg-gray-800 rounded-2xl shadow-lg">
+                <table className="table table-zebra w-full">
+                  <thead className="bg-gray-50 dark:bg-gray-700">
+                    <tr>
+                      <th>Username</th>
+                      <th>Email</th>
+                      <th>Amount</th>
+                      <th>Date</th>
+                      <th>Phone</th>
+                      <th className="text-center">Actions</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+                  </thead>
+                  <tbody>
+                    {bills.map((b) => (
+                      <tr
+                        key={b._id}
+                        className="hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                      >
+                        <td className="font-medium dark:text-gray-300">
+                          {b.username || "—"}
+                        </td>
+                        <td className="dark:text-gray-300">{b.email}</td>
+                        <td className="font-semibold text-success">
+                          ${Number(b.amount).toLocaleString()}
+                        </td>
+                        <td className="dark:text-gray-300">
+                          {new Date(b.createdAt).toLocaleDateString("en-GB")}
+                        </td>
+                        <td className="dark:text-gray-300">{b.phone || "—"}</td>
+                        <td>
+                          <div className="flex justify-center gap-2">
+                            <button
+                              onClick={() => {
+                                setSelectedBill(b);
+                                setFormData({
+                                  amount: Number(b.amount) || 0,
+                                  address: b.address || "",
+                                  phone: b.phone || "",
+                                  date: new Date(b.createdAt)
+                                    .toISOString()
+                                    .slice(0, 10),
+                                });
+                              }}
+                              className="btn btn-sm btn-warning flex items-center gap-1"
+                            >
+                              <Edit2 className="w-4 h-4" />
+                              Edit
+                            </button>
+                            <button
+                              onClick={() => handleDelete(b._id)}
+                              className="btn btn-sm btn-error flex items-center gap-1"
+                              aria-label="Delete bill"
+                            >
+                              <Trash2 className="w-4 h-4" />
+                              Delete
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+
+              {/* Mobile Card View */}
+              <div className="md:hidden space-y-4">
+                {bills.map((b) => (
+                  <div
+                    key={b._id}
+                    className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-4 border border-gray-200 dark:border-gray-700"
+                  >
+                    <div className="space-y-3">
+                      <div className="flex justify-between items-start">
+                        <div>
+                          <p className="text-sm font-semibold text-gray-700 dark:text-gray-300">
+                            {b.username || "—"}
+                          </p>
+                          <p className="text-xs text-gray-500 dark:text-gray-400">
+                            {b.email}
+                          </p>
+                        </div>
+                        <span className="text-lg font-bold text-success">
+                          ${Number(b.amount).toLocaleString()}
+                        </span>
+                      </div>
+
+                      <div className="grid grid-cols-2 gap-3 text-sm">
+                        <div>
+                          <span className="text-gray-500 dark:text-gray-400">
+                            Date:
+                          </span>
+                          <p className="font-medium dark:text-gray-300">
+                            {new Date(b.createdAt).toLocaleDateString("en-GB")}
+                          </p>
+                        </div>
+                        <div>
+                          <span className="text-gray-500 dark:text-gray-400">
+                            Phone:
+                          </span>
+                          <p className="font-medium dark:text-gray-300">
+                            {b.phone || "—"}
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="flex gap-2 pt-2 border-t border-gray-200 dark:border-gray-700">
+                        <button
+                          onClick={() => {
+                            setSelectedBill(b);
+                            setFormData({
+                              amount: Number(b.amount) || 0,
+                              address: b.address || "",
+                              phone: b.phone || "",
+                              date: new Date(b.createdAt)
+                                .toISOString()
+                                .slice(0, 10),
+                            });
+                          }}
+                          className="flex-1 btn btn-sm btn-warning flex items-center justify-center gap-1"
+                        >
+                          <Edit2 className="w-4 h-4" />
+                          Edit
+                        </button>
+                        <button
+                          onClick={() => handleDelete(b._id)}
+                          className="flex-1 btn btn-sm btn-error flex items-center justify-center gap-1"
+                        >
+                          <Trash2 className="w-4 h-4" />
+                          Delete
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </>
           )}
         </div>
       </div>

@@ -25,7 +25,7 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="py-20 px-4  dark:bg-gray-800">
+    <section className="py-20 px-6 ">
       <div className="max-w-7xl  mx-auto">
         <motion.div
           initial={{ y: 30, opacity: 0 }}
@@ -41,7 +41,7 @@ export default function Testimonials() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {testimonials.map((t, i) => (
             <motion.div
               key={i}
@@ -49,7 +49,7 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className=" rounded-2xl p-6 shadow-lg"
+              className=" rounded-2xl p-6  dark:bg-gray-800 shadow-lg"
             >
               <div className="flex  mb-3">
                 {[...Array(t.rating)].map((_, j) => (

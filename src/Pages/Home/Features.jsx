@@ -50,7 +50,7 @@ export default function Features() {
     <section
       className={`py-20 `}
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl px-6 mx-auto">
         {/* Heading */}
         <motion.div
           initial={{ y: 30, opacity: 0 }}
@@ -69,7 +69,7 @@ export default function Features() {
           <p
             className={`text-lg ${
               isDark ? "text-gray-300" : "text-gray-700"
-            } font-sans`}
+            } `}
           >
             Trusted by 500,000+ users in Bangladesh
           </p>
@@ -99,13 +99,13 @@ export default function Features() {
               {/* Title */}
               <h3
                 className={`text-xl font-bold mb-3 ${
-                  isDark ? "text-white font-sans" : "text-gray-800 font-serif"
+                  isDark ? "text-white " : "text-gray-800 "
                 }`}
               >
                 {f.title}
               </h3>
               {/* Description */}
-              <p className={`text-gray-600 dark:text-gray-300 font-sans`}>
+              <p className={`text-gray-600 dark:text-gray-300 `}>
                 {f.desc}
               </p>
             </motion.div>

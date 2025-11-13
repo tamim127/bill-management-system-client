@@ -123,15 +123,17 @@ export default function BillDetails() {
             />
 
             <div>
-              <h1 className="text-3xl font-bold mb-2">{bill.title}</h1>
-              <p className="text-gray-600 mb-2 flex items-center gap-1">
+              <h1 className="text-3xl font-bold dark:text-gray-300 mb-2">
+                {bill.title}
+              </h1>
+              <p className="text-gray-600 dark:text-gray-500 mb-2 flex items-center gap-1">
                 <FiMapPin /> {bill.location}
               </p>
-              <p className="text-lg font-semibold mb-2 flex items-center gap-1">
+              <p className="text-lg dark:text-gray-300 font-semibold mb-2 flex items-center gap-1">
                 <FiDollarSign /> ৳{bill.amount?.toLocaleString()}
               </p>
-              <p className="mb-2">{bill.description}</p>
-              <p className="mt-2 flex items-center gap-1">
+              <p className="mb-2 dark:text-gray-300">{bill.description}</p>
+              <p className="mt-2 dark:text-gray-300 flex items-center gap-1">
                 <FiCalendar />{" "}
                 {billDate.toLocaleDateString("en-BD", {
                   month: "long",
@@ -157,7 +159,7 @@ export default function BillDetails() {
       {showModal && (
         <div className="fixed inset-0 bg-black/60 flex justify-center items-center z-50 p-4">
           <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-6 w-full max-w-lg">
-            <h2 className="text-2xl font-bold mb-6 text-center">
+            <h2 className="text-2xl dark:bg-gray-800 dark:text-gray-300 font-bold mb-6 text-center">
               Complete Payment
             </h2>
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -165,19 +167,19 @@ export default function BillDetails() {
                 type="email"
                 value={user?.email || ""}
                 readOnly
-                className="input input-bordered w-full bg-gray-100"
+                className="input  input-bordered w-full bg-gray-100 dark:text-gray-400 dark:bg-gray-800"
               />
               <input
                 type="text"
                 value={bill._id}
                 readOnly
-                className="input input-bordered w-full bg-gray-100"
+                className="input dark:text-gray-300 input-bordered w-full dark:bg-gray-800 bg-gray-100"
               />
               <input
                 type="text"
                 value={`৳${bill.amount}`}
                 readOnly
-                className="input input-bordered w-full bg-gray-100"
+                className="input dark:text-gray-300 input-bordered w-full dark:bg-gray-800 bg-gray-100"
               />
               <input
                 type="text"
@@ -187,7 +189,7 @@ export default function BillDetails() {
                   setFormData({ ...formData, username: e.target.value })
                 }
                 required
-                className="input input-bordered w-full"
+                className="input dark:text-gray-300 input-bordered w-full"
               />
               <textarea
                 placeholder="Address"
@@ -196,7 +198,7 @@ export default function BillDetails() {
                   setFormData({ ...formData, address: e.target.value })
                 }
                 required
-                className="textarea textarea-bordered w-full"
+                className="textarea dark:text-gray-300 textarea-bordered w-full"
               />
               <input
                 type="tel"
@@ -207,7 +209,7 @@ export default function BillDetails() {
                 }
                 required
                 pattern="[0-9]{11}"
-                className="input input-bordered w-full"
+                className="input dark:text-gray-300 input-bordered w-full"
               />
               <textarea
                 placeholder="Additional Info (optional)"
@@ -218,13 +220,13 @@ export default function BillDetails() {
                     additionalInfo: e.target.value,
                   })
                 }
-                className="textarea textarea-bordered w-full"
+                className="textarea dark:text-gray-300 textarea-bordered w-full"
               />
               <div className="flex gap-3 mt-6">
                 <button
                   type="button"
                   onClick={() => setShowModal(false)}
-                  className="btn btn-ghost flex-1"
+                  className="btn dark:text-gray-300  btn-ghost flex-1"
                 >
                   Cancel
                 </button>

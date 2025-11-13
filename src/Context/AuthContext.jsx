@@ -9,7 +9,7 @@ import {
   onAuthStateChanged,
   signOut,
   updateProfile,
-  sendPasswordResetEmail, // <-- ADD THIS
+  sendPasswordResetEmail, 
 } from "firebase/auth";
 import toast from "react-hot-toast";
 
