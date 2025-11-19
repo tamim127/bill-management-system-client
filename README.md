@@ -118,4 +118,23 @@ UI/UX,[Tamim],
 -  Authentication: Firebase
 -  Server-side: Vercel
 
+# 🛠️ Installation & Local Setup
+
+Follow the steps below to run the **Utility Bill Management System** on your local machine.
+
+---
+
+# 1. Clone the Repository
+
+```bash
+git clone https://github.com/tamim127/bill-management-system-client/
+````
+# 2. Install Dependencies
+```bash
+npm install
+```
+# Start
+
+npm run dev
+
 
